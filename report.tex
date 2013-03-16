@@ -1,0 +1,95 @@
+% \documentclass[12pt,a4paper,oneside,titlepage]{report}
+\documentclass[12pt,a4paper,twoside,titlepage]{report}
+
+\usepackage[semester]{mse}
+\usepackage{lipsum}
+\usepackage{graphicx}
+
+\title{\LaTeX\ Thesis Template}
+
+\author{Nicolas Jakob}
+\email{nicolas.jakob@master.hes-so.ch}
+
+\professor{Prof. Professeur}{professeur@heig-vd.ch}{HEIG-VD}
+\institute{Institute for Information and Communication Technologies}{HEIG-VD}
+\supervisor{Prof. Supervieur}{superviseur@heig-vd.ch}{HEIG-VD}
+\expert{Prof. Expert}{expert@master.hes-so.ch}{HES-SO}
+
+\proposedby{Prof. Professeur}{professeur@heig-vd.ch}{HEIG-VD}
+\advisor{Prof. Conseiller}
+\head{Fariba Moghaddam Bützberger}
+
+\begin{document}
+
+   \maketitle
+   \makextrainfo
+
+   % Preamble #################################################################
+
+   \pagenumbering{roman}
+
+   \pagestyle{fancy}
+   \makeatletter
+      \fancyfoot{}
+      \fancyfoot[LE,RO]{\thepage}
+      \fancyfoot[LO]{\@author\ --- \@title}
+      \renewcommand{\headrulewidth}{1.0pt}
+      \renewcommand{\footrulewidth}{0.4pt}
+   \makeatother
+
+   \input{chapters/abstract}
+   \input{chapters/acknowledgments}
+
+   % Table of contents ########################################################
+
+   \setcounter{tocdepth}{2}
+   \tableofcontents\thispagestyle{fancy}
+   \clearemptydoublepage
+
+   % Chapters #################################################################
+
+   \pagenumbering{arabic}
+   
+   \input{chapters/introduction}
+   \input{chapters/researches}
+   \input{chapters/results}
+   \input{chapters/experimenting}
+   \input{chapters/conclusion}
+
+   % Bibliography #############################################################
+
+   \nocite{*}
+   \newpage
+   \phantomsection
+   \addcontentsline{toc}{chapter}{\bibname}
+   \bibliographystyle{plain}
+   % Sample from http://amath.colorado.edu/documentation/LaTeX/basics/steps/BIBtex.html
+   \bibliography{bibliography}\thispagestyle{fancy}
+
+   % Index ####################################################################
+
+   % Glossary #################################################################
+
+   % Acronyms #################################################################
+
+   % List of Figures ##########################################################
+
+   \newpage
+   \phantomsection
+   \addcontentsline{toc}{chapter}{\listfigurename}
+   \listoffigures\thispagestyle{fancy}
+
+   % List of Tables ###########################################################
+
+   \newpage
+   \phantomsection
+   \addcontentsline{toc}{chapter}{\listtablename}
+   \listoftables\thispagestyle{fancy}
+
+   % Appendix #################################################################
+
+   \begin{appendix}
+      \input{appendices/dummy.tex}
+   \end{appendix}
+
+\end{document}
