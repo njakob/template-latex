@@ -81,9 +81,11 @@
          {\large \@type}
          \vspace{0.75cm} 
 
-         \begin{minipage}[c]{0.6\textwidth}
-            \centering Soutenu par \textit \@institutename, \textit \@institute
-         \end{minipage}
+         \if\@institute \else
+            \begin{minipage}[c]{0.6\textwidth}
+                \centering Soutenu par \textit \@institutename, \textit \@institute
+            \end{minipage}
+         \fi
          \vspace{2cm}
 
          {\large \@author}\\
@@ -96,9 +98,11 @@
                \@professor, {\textit \@professorinstitute}\\
                {\texttt \@professoremail}\\
                \vspace{1cm} 
-               {\bf Superviseur}\\
-               \@supervisor, {\textit \@supervisorinstitute}\\
-               {\texttt \@supervisoremail}
+               \if\@supervisor \else
+                  {\bf Superviseur}\\
+                  \@supervisor, {\textit \@supervisorinstitute}\\
+                  {\texttt \@supervisoremail}
+               \fi
             \end{flushleft}
          \end{minipage}
          \hfill
