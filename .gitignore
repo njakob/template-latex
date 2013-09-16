@@ -6,6 +6,7 @@
 *.fls
 *.lof
 *.log
+*.lol
 *.lot
 *.out
 *.sublime-project
