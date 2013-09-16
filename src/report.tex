@@ -1,51 +1,37 @@
-% \documentclass[12pt,a4paper,oneside,titlepage]{report}
-\documentclass[12pt,a4paper,twoside,titlepage]{report}
+\documentclass[tic, semester, confidential, twoside, en]{mse-thesis}
 
-\usepackage[semester]{mse}
 \usepackage{lipsum}
-\usepackage{graphicx}
+
 
 \title{\LaTeX\ Thesis Template}
+\author{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}       
+\professor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}
+\expert{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}
+\proposedby{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}{HES-SO}
+\advisor{Prof. John Doe}
+\headofmse{Fariba Moghaddam Bützberger}
 
-\author{Nicolas Jakob}
-\email{nicolas.jakob@master.hes-so.ch}
 
-\professor{Prof. Professeur}{professeur@heig-vd.ch}{HEIG-VD}
-\institute{Institute for Information and Communication Technologies}{HEIG-VD}
-\supervisor{Prof. Supervieur}{superviseur@heig-vd.ch}{HEIG-VD}
-\expert{Prof. Expert}{expert@master.hes-so.ch}{HES-SO}
+% information for students where project takes place abroad - simply remove
+% these lines else
+\supervisor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}
+\institute{Institute which is aboard}{HES-SO}
 
-\proposedby{Prof. Professeur}{professeur@heig-vd.ch}{HEIG-VD}
-\advisor{Prof. Conseiller}
-\head{Fariba Moghaddam Bützberger}
 
 \begin{document}
-
-   \maketitle
-   \makextrainfo
 
    % Preamble #################################################################
 
    \pagenumbering{roman}
 
-   \pagestyle{fancy}
-   \makeatletter
-      \fancyfoot{}
-      \fancyfoot[LE,RO]{\thepage}
-      \fancyfoot[LO]{\@author\ --- \@title}
-      \renewcommand{\headrulewidth}{1.0pt}
-      \renewcommand{\footrulewidth}{0.4pt}
-   \makeatother
-
    \input{chapters/abstract}
    \input{chapters/acknowledgments}
 
-   % Table of contents ########################################################
+   % Table of Contents ########################################################
 
    \setcounter{tocdepth}{2}
-   \tableofcontents\thispagestyle{fancy}
+   \tableofcontents
    \clearemptydoublepage
-
    % Chapters #################################################################
 
    \pagenumbering{arabic}
@@ -56,40 +42,17 @@
    \input{chapters/experimenting}
    \input{chapters/conclusion}
 
-   % Bibliography #############################################################
+   % Bibliography & Lists #####################################################
 
-   \nocite{*}
-   \newpage
-   \phantomsection
-   \addcontentsline{toc}{chapter}{\bibname}
-   \bibliographystyle{plain}
-   % Sample from http://amath.colorado.edu/documentation/LaTeX/basics/steps/BIBtex.html
-   \bibliography{bibliography}\thispagestyle{fancy}
-
-   % Index ####################################################################
-
-   % Glossary #################################################################
-
-   % Acronyms #################################################################
-
-   % List of Figures ##########################################################
-
-   \newpage
-   \phantomsection
-   \addcontentsline{toc}{chapter}{\listfigurename}
-   \listoffigures\thispagestyle{fancy}
-
-   % List of Tables ###########################################################
-
-   \newpage
-   \phantomsection
-   \addcontentsline{toc}{chapter}{\listtablename}
-   \listoftables\thispagestyle{fancy}
+   \insertbibliography
+   \insertlof
+   \insertlot
+   \insertlol
 
    % Appendix #################################################################
 
    \begin{appendix}
-      \input{appendices/dummy.tex}
+      \input{appendices/dummy}
    \end{appendix}
 
 \end{document}

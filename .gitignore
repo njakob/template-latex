@@ -1,11 +1,14 @@
+
 *.aux
 *.bbl
 *.blg
 *.fdb_latexmk
 *.fls
-*.synctex.gz
 *.lof
+*.log
 *.lot
 *.out
+*.sublime-project
+*.sublime-workspace
+*.synctex.gz
 *.toc
-*.log

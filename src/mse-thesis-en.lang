@@ -1,0 +1,17 @@
+\newcommand{\mse@str@tic}{Information and Communication Technologies}
+\newcommand{\mse@str@tin}{Industrial Technologies}
+\newcommand{\mse@str@major}{Major}
+\newcommand{\mse@str@confidential}{Confidential}
+\newcommand{\mse@str@semester}{Semester Project}
+\newcommand{\mse@str@thesis}{Master Thesis}
+\newcommand{\mse@str@supportedby}{Supported by}
+\newcommand{\mse@str@professor}{Professor}
+\newcommand{\mse@str@proposedby}{Accepted by HES-SO//Master (Switzerland, Lausanne) on a proposal from}
+\newcommand{\mse@str@supervisor}{Supervisor}
+\newcommand{\mse@str@advisor}{Advisor}
+\newcommand{\mse@str@headofmse}{Head of MSE}
+\newcommand{\mse@str@chapter}{Chapter}
+\newcommand{\mse@str@section}{Section}
+\newcommand{\mse@str@figure}{Figure}
+\newcommand{\mse@str@table}{Table}
+\newcommand{\mse@str@listing}{Listing}

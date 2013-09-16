@@ -1,0 +1,19 @@
+\newcommand{\mse@str@tic}{Technologies de l'information et de la communication}
+\newcommand{\mse@str@tin}{Technologies industrielles}
+\newcommand{\mse@str@major}{Orientation}
+\newcommand{\mse@str@confidential}{Confidentiel}
+\newcommand{\mse@str@semester}{Projet de Semestre}
+\newcommand{\mse@str@thesis}{Thèse de Master}
+\newcommand{\mse@str@supportedby}{Soutenu par}
+\newcommand{\mse@str@professor}{Professeur}
+\newcommand{\mse@str@proposedby}{Accepté par la HES-SO//Master (Suisse, Lausanne) sur proposition de}
+\newcommand{\mse@str@supervisor}{Superviseur}
+\newcommand{\mse@str@advisor}{Conseiller}
+\newcommand{\mse@str@headofmse}{Responsable de la filière MSE}
+\newcommand{\mse@str@chapter}{Chapitre}
+\newcommand{\mse@str@section}{Section}
+\newcommand{\mse@str@figure}{Figure}
+\newcommand{\mse@str@table}{Table}
+\newcommand{\mse@str@listing}{Listing}
+
+\renewcommand{\lstlistlistingname}{Liste des listings}
