@@ -1,52 +1,29 @@
 \NeedsTeXFormat{LaTeX2e}
 \newcommand{\mse@version}{2.0}
-\ProvidesPackage{mse-thesis}[2013/09/13 MSE Template LaTex, \mse@version]
+\ProvidesPackage{mse-thesis}[2013/09/17 MSE Template LaTex, \mse@version]
 
 % Options Definitions ######################################################
 
-\DeclareOption{en}{
-   \newcommand{\mse@babel}{
-      \RequirePackage[english]{babel}
-      \input{mse-thesis-en.lang}
-   }
-}
-\DeclareOption{fr}{
-   \newcommand{\mse@babel}{
-      \RequirePackage[frenchb]{babel}
-      \input{mse-thesis-fr.lang}
-   }
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{
+	prefix=mse@option@
 }
 
-\DeclareOption{tic}{
-   \newcommand{\mse@major}{\mse@str@tic}
+\DeclareStringOption[fr, en]{lang}
+\DeclareStringOption[tic, tin]{major}
+\DeclareStringOption[semester, thesis]{type}
+\DeclareStringOption{path}
+\DeclareBoolOption[false]{confidential}
+
+\DeclareDefaultOption{
+	\PassOptionsToClass{\CurrentOption}{report}
 }
 
-\DeclareOption{tin}{
-   \newcommand{\mse@major}{\mse@str@tin}
-}
-
-\DeclareOption{semester}{
-   \newcommand{\mse@type}{\mse@str@semester}
-}
-
-\DeclareOption{thesis}{
-   \newcommand{\mse@type}{\mse@str@thesis}
-}
-
-\newif\ifconfidential
-\DeclareOption{confidential}{
-   \confidentialtrue
-}
-
-\DeclareOption*{
-   \PassOptionsToClass{\CurrentOption}{report}
-}
-
-\ProcessOptions
+\ProcessKeyvalOptions*
 
 \LoadClass[12pt, a4paper, titlepage]{report}
 
-% Required Packages ########################################################
+% Options Processing #######################################################
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8x]{inputenc}
@@ -57,8 +34,27 @@
 \RequirePackage{anysize}
 \RequirePackage{fancyhdr}
 \RequirePackage{listings}
+\RequirePackage{pdftexcmds}
 
-\mse@babel
+\ifnum\pdf@strcmp{\mse@option@lang}{fr}=0
+	\RequirePackage[frenchb]{babel}
+    \input{\mse@option@path/mse-thesis-fr.lang}
+\else
+	\RequirePackage[english]{babel}
+    \input{\mse@option@path/mse-thesis-en.lang}
+\fi
+
+\ifnum\pdf@strcmp{\mse@option@type}{semester}=0
+	\newcommand{\mse@type}{\mse@str@semester}
+\else
+	\newcommand{\mse@type}{\mse@str@thesis}
+\fi
+
+\ifnum\pdf@strcmp{\mse@option@major}{tic}=0
+	\newcommand{\mse@major}{\mse@str@tic}
+\else
+	\newcommand{\mse@major}{\mse@str@tin}
+\fi
 
 % Commands Definitions #####################################################
 
@@ -181,6 +177,9 @@
 \let\Chapter\chapter
 \def\chapter{\addtocontents{lol}{\protect\addvspace{10pt}}\Chapter}
 
+% proper header height
+\setlength{\headheight}{15pt}
+
 % Title Page ###############################################################
 
 \AtBeginDocument{
@@ -194,17 +193,17 @@
          \vspace*{-2cm}
          \begin{minipage}[c]{0.4\textwidth}
             \begin{flushleft}
-               \includegraphics[width=200px]{gfx/mse.eps}
+               \includegraphics[width=200px]{\mse@option@path/gfx/mse.eps}
             \end{flushleft}
          \end{minipage}
          \hfill
          \begin{minipage}[c]{0.4\textwidth}
             \begin{flushright}
-               \includegraphics[width=150px]{gfx/hesso.eps}
+               \includegraphics[width=150px]{\mse@option@path/gfx/hesso.eps}
             \end{flushright}
          \end{minipage}
          \vspace*{1.5cm}
-         \ifconfidential \MakeUppercase{\mse@str@confidential} \fi
+         \ifmse@option@confidential \MakeUppercase{\mse@str@confidential} \fi
          \vspace*{1.5cm}
 
          {\large \bf Master of Science HES-SO in Engineering}\\[1.5ex]
