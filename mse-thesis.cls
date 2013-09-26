@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \newcommand{\mse@classversion}{2.0}
-\ProvidesPackage{template-latex/mse-thesis}[2013/09/17 MSE Template LaTex, \mse@classversion]
+\ProvidesPackage{./template-latex/mse-thesis}[2013/09/17 MSE Template LaTex, \mse@classversion]
 
 % Options Definitions ######################################################
 
