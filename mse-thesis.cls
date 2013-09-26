@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
-\newcommand{\mse@version}{2.0}
-\ProvidesPackage{mse-thesis}[2013/09/17 MSE Template LaTex, \mse@version]
+\newcommand{\mse@classversion}{2.0}
+\ProvidesPackage{template-latex/mse-thesis}[2013/09/17 MSE Template LaTex, \mse@classversion]
 
 % Options Definitions ######################################################
 
@@ -14,6 +14,7 @@
 \DeclareStringOption[semester, thesis]{type}
 \DeclareStringOption{path}
 \DeclareBoolOption[false]{confidential}
+\DeclareBoolOption[false]{skipbla}
 
 \DeclareDefaultOption{
 	\PassOptionsToClass{\CurrentOption}{report}
@@ -26,15 +27,18 @@
 % Options Processing #######################################################
 
 \RequirePackage[T1]{fontenc}
-\RequirePackage[utf8x]{inputenc}
+\RequirePackage[utf8]{inputenc}
 \RequirePackage[a4paper]{geometry}
+\RequirePackage{pdflscape}
 \RequirePackage{hyperref}
 \RequirePackage{xspace}
 \RequirePackage{graphicx}
 \RequirePackage{anysize}
 \RequirePackage{fancyhdr}
 \RequirePackage{listings}
-\RequirePackage{pdftexcmds}
+\RequirePackage[style=ieee, backend=biber]{biblatex}
+\RequirePackage{csquotes}
+\RequirePackage{setspace}
 
 \ifnum\pdf@strcmp{\mse@option@lang}{fr}=0
 	\RequirePackage[frenchb]{babel}
@@ -110,6 +114,10 @@
 \newcommand{\headofmse}[1]{
    \renewcommand{\mse@headofmse}{#1}
 }
+\newcommand\mse@version{}
+\newcommand{\version}[1]{
+   \renewcommand{\mse@version}{#1}
+}
 
 % clear a double page for a new chapter - when there isn't any content in a page, this
 % would automaticly clear headers
@@ -157,19 +165,9 @@
    \nocite{*}
    \newpage
    \phantomsection
-   \addcontentsline{toc}{chapter}{\bibname}
-   \bibliographystyle{plain}
-   \bibliography{bibliography}\thispagestyle{fancy}
+   \printbibliography[heading=bibintoc]
+   \thispagestyle{fancy}
 }
-
-% commands which help to reference content
-\newcommand{\refchapter}[1]{\mse@str@chapter \ref{#1}\xspace}
-\newcommand{\refchapterlong}[1]{\mse@str@chapter \ref{#1} (\emph{\nameref{#1}})\xspace}
-\newcommand{\refsection}[1]{\mse@str@section \ref{#1}\xspace}
-\newcommand{\refsectionlong}[1]{\mse@str@section \ref{#1} (\emph{\nameref{#1}})\xspace}
-\newcommand{\reffigure}[1]{\mse@str@figure \ref{#1}\xspace}
-\newcommand{\reftable}[1]{\mse@str@table \ref{#1}\xspace}
-\newcommand{\reflisting}[1]{\mse@str@listing \ref{#1}\xspace}
 
 % More Package Setup #######################################################
 
@@ -187,11 +185,11 @@
    \pagestyle{empty}
 
    \begin{center}
-      \parbox[c][\textheight][t]{1.0\textwidth}{
+      \parbox[c][0.98\textheight][t]{1.0\textwidth}{
          \begin{center}
 
          \vspace*{-2cm}
-         \begin{minipage}[c]{0.4\textwidth}
+         \begin{minipage}[c]{0.5\textwidth}
             \begin{flushleft}
                \includegraphics[width=200px]{\mse@option@path/gfx/mse.eps}
             \end{flushleft}
@@ -226,7 +224,7 @@
          \if\mse@email \else \texttt \mse@email \fi
          \vspace{2.5cm} 
 
-         \begin{minipage}[t]{0.49\textwidth}
+         \begin{minipage}[t]{0.45\textwidth}
             \begin{flushleft}
                {\bf \mse@str@professor}\\
                \mse@professor, {\textit \mse@professor@institute}\\
@@ -240,7 +238,7 @@
             \end{flushleft}
          \end{minipage}
          \hfill
-         \begin{minipage}[t]{0.49\textwidth}
+         \begin{minipage}[t]{0.45\textwidth}
             \begin{flushright}
                {\bf Expert}\\
                \mse@expert, {\textit \mse@expert@institute}\\
@@ -249,42 +247,46 @@
          \end{minipage}
 
          \vfill
-         {HES-SO//Master, \@date}
+         {HES-SO//Master, \@date, \mse@version}
 
          \end{center}
       }
    \end{center}  
    \cleardoublepage
 
-   \pagestyle{empty}
+   \ifmse@option@skipbla \else
 
-   \begin{center}
-      \parbox[c][\textheight][t]{1.0\textwidth}{
-         \begin{center}
+      \pagestyle{empty}
 
-            \mse@str@proposedby\\[2ex]
-            \mse@proposedby, {\textit \mse@proposedby@institute}\\
-            {\texttt \mse@proposedby@email}
-            \vspace{2.5cm} 
+      \begin{center}
+         \parbox[c][\textheight][t]{1.0\textwidth}{
+            \begin{center}
 
-            \begin{minipage}[t]{0.49\textwidth}
-               \begin{flushleft}
-                  {\bf \mse@str@advisor}\\
-                  \mse@advisor\\
-               \end{flushleft}
-            \end{minipage}
-            \hfill
-            \begin{minipage}[t]{0.49\textwidth}
-               \begin{flushright}
-                  {\bf \mse@str@headofmse}\\
-                  \mse@headofmse\\
-               \end{flushright}
-            \end{minipage}
+               \mse@str@proposedby\\[2ex]
+               \mse@proposedby, {\textit \mse@proposedby@institute}\\
+               {\texttt \mse@proposedby@email}
+               \vspace{2.5cm} 
 
-         \end{center}
-      }
-   \end{center}
-   \cleardoublepage
+               \begin{minipage}[t]{0.49\textwidth}
+                  \begin{flushleft}
+                     {\bf \mse@str@advisor}\\
+                     \mse@advisor\\
+                  \end{flushleft}
+               \end{minipage}
+               \hfill
+               \begin{minipage}[t]{0.49\textwidth}
+                  \begin{flushright}
+                     {\bf \mse@str@headofmse}\\
+                     \mse@headofmse\\
+                  \end{flushright}
+               \end{minipage}
+
+            \end{center}
+         }
+      \end{center}
+      \cleardoublepage
+
+   \fi
 
    \pagestyle{fancy}
    \fancyfoot{}

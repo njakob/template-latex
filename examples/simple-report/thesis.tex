@@ -1,11 +1,20 @@
-\newcommand{\msepath}{..}
-\documentclass[major=tic, type=thesis, confidential=false, lang=en, path=\msepath, twoside]{\msepath/mse-thesis}
+\newcommand{\msepath}{./template-latex}
+\documentclass[
+   major=tic,
+   type=thesis,
+   confidential=false,
+   lang=en,
+   path=\msepath,
+   % report options
+   twoside
+]{\msepath/mse-thesis}
 
 \usepackage{lipsum}
 
-
+en
 \title{\LaTeX\ Thesis Template}
-\author{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}       
+\author{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}  
+\version{Version 1}     
 \professor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}
 \expert{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}
 \proposedby{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}{HES-SO}
@@ -19,6 +28,9 @@
 \institute{Institute which is aboard}{HES-SO}
 
 
+\addbibresource{bibliography.bib}
+
+
 \begin{document}
 
    % Preamble #################################################################
@@ -30,9 +42,8 @@
 
    % Table of Contents ########################################################
 
-   \setcounter{tocdepth}{2}
-   \tableofcontents
-   \clearemptydoublepage
+   \inserttoc
+
    % Chapters #################################################################
 
    \pagenumbering{arabic}
@@ -46,6 +57,7 @@
    % Bibliography & Lists #####################################################
 
    \insertbibliography
+   
    \insertlof
    \insertlot
    \insertlol
