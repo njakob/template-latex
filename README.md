@@ -24,17 +24,123 @@ Now you can start to write your report in `thesis.tex`.
 
 ## Options
 
-*(Available soon)*
+Different options can be defined for the document class.
+
+### Confidential
+
+Type: `Boolean` Default: False
+
+Place a confidential marker on the first page.
+
+### Lang
+
+Type: `String` Default: `en`
+Accept: `fr`, `en`
+
+Language of your document.
+
+### Major
+
+Type: `String` Default: `tin`
+Accept: `tic`, `tin` 
+
+Define your major, `tic` for *Information and Communication Technologies* or `tin` for *Industrial Technologies*.
+
+### Path
+
+Type: `String`
+
+Path to this document class.
+
+### Type
+
+Type: `String` Default: `thesis`
+Accept: `semester`, `thesis`
+
+Define whether it is a semester project or thesis.
 
 ## Metadata
 
-*(Available soon)*
+Some metadata listed below must be provided to the document class.
 
-`\title`
-`\author`
-`\professor`
-`\expert`
-`\proposedby`
-`\advisor`
-`\headofmse`
-`\version`
+### Advisor
+
+Arguments: name
+
+Advisor of your project, it is usually the same person as `\professor`.
+
+Example: `\advisor{Prof. John Doe}`
+
+### Author
+
+Arguments: name, e-mail
+
+Your name and contact information.
+
+Example: `\author{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}`
+
+### Expert
+
+Arguments: name, e-mail, school or institute
+
+Name and contact information of your expert.
+
+Example: `\expert{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}`
+
+### HeadOfMSE
+
+Arguments: name
+
+Name of Head of MSE.
+
+Example: `\headofmse{Fariba Moghaddam Bützberger}`
+
+### Institute
+
+*Optional*,
+Arguments: school or institute, acronym
+
+When you are abroad, place the information about the school or institute where you have done your work.
+
+Example: `\institute{Institute which is aboard}{HES-SO}`
+
+### Title
+
+Arguments: title
+
+Title of your report.
+
+Example: `\title{\LaTeX\ Thesis Template}`
+
+### Professor
+
+Arguments: name, e-mail, school or institute
+
+Professor who follows your research.
+
+Example: `\professor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}`
+
+### ProposedBy
+
+Arguments: name, e-mail, school or institute
+
+Person or company who proposed the subject of your work.
+
+Example: `\proposedby{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}{HES-SO}`
+
+### Supervisor
+
+*Optional*,
+Arguments: name, e-mail, school or institute
+
+When you are abroad, place information about the person following your research.
+
+Example: `\supervisor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}`
+
+### Version
+
+Arguments: version
+
+Keep track of the published version of your document.
+
+Example: `\version{Version 1}`
