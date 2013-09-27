@@ -9,6 +9,8 @@ This template provides a LaTeX class which simply replaces and extends the stand
 
 *It is recommended that you configure your workspace as shown below, then it will be easy to keep it updated.*
 
+You can also simply check out [releases](https://github.com/njakob/template-latex/releases) and download [last zip package](https://github.com/njakob/template-latex/archive/2.0.zip).
+
 Create a new folder for your report, then run git clone command.
 
 ```shell
