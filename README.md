@@ -7,14 +7,47 @@ LaTeX template for MSE semester and thesis reports.
 
 This template provides a LaTeX class which simply replaces and extends the standard directive `report`.
 
+### Without Git
+
+You can simply check out [releases](https://github.com/njakob/template-latex/releases) and download [last zip package](https://github.com/njakob/template-latex/archive/2.0.zip).
+
 *It is recommended that you configure your workspace as shown below, then it will be easy to keep it updated.*
 
-You can also simply check out [releases](https://github.com/njakob/template-latex/releases) and download [last zip package](https://github.com/njakob/template-latex/archive/2.0.zip).
+### Clone this Repository
 
 Create a new folder for your report, then run git clone command.
 
 ```shell
 $ git clone git@github.com:njakob/template-latex.git
+```
+
+Then copy an example from `/examples` folder into your workspace.
+```shell
+$ cp -a template-latex/examples/simple-report/* ./
+```
+
+Now you can start to write your report in `thesis.tex`.
+
+### Setup your Own Repository
+
+Create a new folder for your report, and then initialize your repository as usual.
+
+```shell
+$ git init
+$ git remote add origin <remote-location-of-your-git>
+```
+
+Then you can link this template with your repository with git submodule.
+
+```shell
+$ git submodule add git@github.com:njakob/template-latex.git ./template-latex
+```
+
+This sub-module will work the same way as a normal repository. For example, you can change the version as shown below. More documentation could be found at <http://git-scm.com/book/en/Git-Tools-Submodules>.
+
+```shell
+$ cd ./template-latex
+$ git checkout 2.0
 ```
 
 Then copy an example from `/examples` folder into your workspace.
