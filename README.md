@@ -9,7 +9,7 @@ This template provides a LaTeX class which simply replaces and extends the stand
 
 ### Without Git
 
-You can simply check out [releases](https://github.com/njakob/template-latex/releases) and download [last zip package](https://github.com/njakob/template-latex/archive/2.0.zip).
+You can simply check out [releases](https://github.com/njakob/template-latex/releases) and download [last zip package](https://github.com/njakob/template-latex/archive/v2.0-package.zip).
 
 *It is recommended that you configure your workspace as shown below, then it will be easy to keep it updated.*
 
