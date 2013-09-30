@@ -47,7 +47,8 @@ This sub-module will work the same way as a normal repository. For example, you 
 
 ```shell
 $ cd ./template-latex
-$ git checkout 2.0
+$ git checkout v2.0
+$ cd ..
 ```
 
 Then copy an example from `/examples` folder into your workspace.
