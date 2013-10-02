@@ -1,0 +1,65 @@
+\chapter{Introduction}
+\label{sec:introduction}
+\thispagestyle{fancy}
+
+\lipsum[6]
+
+\section{Context}
+
+\lipsum[6]
+
+\section{Project Scope}
+
+\lipsum[6]
+
+\begin{landscape}
+\section{Schedule}
+\vspace*{\fill}
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33}
+\begin{ganttchart}[
+		canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+		hgrid,
+		vgrid,
+		title/.style={draw=black!5, fill=none},
+		title label font=\bfseries\footnotesize,
+		include title in canvas=false,
+		bar label font=\mdseries\scriptsize\color{black!70},
+		bar/.append style={draw=none, fill=barblue},
+		bar height=.5,
+		group/.append style={fill=groupblue},
+		group height=.4,
+		group peaks height=0.2,
+		group label font=\bfseries\footnotesize,
+		milestone left shift=0.9,
+		milestone right shift=0.1,
+		milestone label font=\mdseries\scriptsize\bf\color{linkred},
+		milestone/.append style={fill=linkred},
+		y unit chart=0.55cm,
+		x unit=.99cm,
+	]{1}{18}
+
+	\gantttitlelist{1,...,18}{1} \\
+	\ganttset{progress label text={}, link/.style={black, -to}}
+
+	\ganttgroup{Administrative}{1}{3}\\
+	\ganttbar{Project requirements \& planning}{1}{2}\\
+	\ganttbar{Scope of the project}{1}{3}\\
+	\ganttmilestone{Scope \& objectives}{3}\\
+
+	\ganttgroup{Implementation}{3}{16}\\
+	\ganttbar{Module 1}{3}{10}\\
+	\ganttbar{Module 2}{5}{12}\\
+	\ganttbar{Module 3}{8}{16}\\
+	\ganttmilestone{Release}{16}\\
+
+	\ganttgroup{Documentation}{1}{18}\\
+	\ganttbar{State of the art}{1}{3}\\
+	\ganttbar{Report Writing}{2}{18}\\
+	\ganttmilestone{Report}{18}\\
+\end{ganttchart}
+\vspace*{\fill}
+\end{landscape}
+
+\clearemptydoublepage

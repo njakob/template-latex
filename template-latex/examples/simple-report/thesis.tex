@@ -1,0 +1,93 @@
+\newcommand{\msepath}{./template-latex}
+\documentclass[
+   major=tic,
+   type=thesis,
+   confidential=false,
+   lang=en,
+   path=\msepath,
+   % report options
+   twoside
+]{\msepath/mse-thesis}
+
+\usepackage{lipsum}
+
+\title{\LaTeX\ Thesis Template}
+\author{Nicolas Jakob}
+\contact{nicolas.jakob@master.hes-so.ch}
+\professor{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+   \and
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+\expert{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+\version{Version 1}
+\proposedby{
+   Nicolas Jakob
+   \institute{HES-SO}
+   \email{nicolas.jakob@master.hes-so.ch}
+}
+\advisor{Prof. John Doe}
+\headofmse{Fariba Moghaddam Bützberger}
+
+% information for students where project takes place abroad - simply remove
+% these lines else
+\supervisor{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+\location{
+   Institute which is aboard
+   \institute{HES-SO}
+}
+
+
+\addbibresource{bibliography.bib}
+
+
+\begin{document}
+
+   % Preamble #################################################################
+
+   \pagenumbering{roman}
+
+   \input{chapters/abstract}
+   \input{chapters/acknowledgments}
+
+   % Table of Contents ########################################################
+
+   \inserttoc
+
+   % Chapters #################################################################
+
+   \pagenumbering{arabic}
+   
+   \input{chapters/introduction}
+   \input{chapters/researches}
+   \input{chapters/results}
+   \input{chapters/experimenting}
+   \input{chapters/conclusion}
+
+   % Bibliography & Lists #####################################################
+
+   \insertbibliography
+   
+   \insertlof
+   \insertlot
+   \insertlol
+
+   % Appendix #################################################################
+
+   \begin{appendix}
+      \input{appendices/dummy}
+   \end{appendix}
+
+\end{document}
