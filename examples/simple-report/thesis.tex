@@ -12,19 +12,42 @@
 \usepackage{lipsum}
 
 \title{\LaTeX\ Thesis Template}
-\author{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}  
-\version{Version 1}     
-\professor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}
-\expert{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}
-\proposedby{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}{HES-SO}
+\author{Nicolas Jakob}
+\contact{nicolas.jakob@master.hes-so.ch}
+\professor{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+   \and
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+\expert{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+\version{Version 1}
+\proposedby{
+   Nicolas Jakob
+   \institute{HES-SO}
+   \email{nicolas.jakob@master.hes-so.ch}
+}
 \advisor{Prof. John Doe}
 \headofmse{Fariba Moghaddam Bützberger}
 
-
 % information for students where project takes place abroad - simply remove
 % these lines else
-\supervisor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}
-\institute{Institute which is aboard}{HES-SO}
+\supervisor{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+\location{
+   Institute which is aboard
+   \institute{HES-SO}
+}
 
 
 \addbibresource{bibliography.bib}

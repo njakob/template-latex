@@ -27,6 +27,7 @@
 % Options Processing #######################################################
 
 \RequirePackage[T1]{fontenc}
+\RequirePackage{pgfgantt}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[a4paper]{geometry}
 \RequirePackage{pdflscape}
@@ -62,61 +63,57 @@
 
 % Commands Definitions #####################################################
 
-\newcommand{\mse@author}{}
-\newcommand{\mse@email}{}
-\renewcommand{\author}[2]{
+\renewcommand{\and}{\\\vspace{0.5em}}
+\newcommand{\email}[1]{\\{\texttt{#1}}}
+\newcommand{\institute}[1]{\unskip, \emph{#1}}
+
+\newcommand{\mse@author}{\@empty}
+\renewcommand{\author}[1]{
    \renewcommand{\mse@author}{#1}
-   \renewcommand{\mse@email}{#2}
 }
-\newcommand\mse@institute{}
-\newcommand\mse@institute@short{}
-\newcommand{\institute}[2]{
-   \renewcommand{\mse@institute}{#1}
-   \renewcommand{\mse@institute@short}{#2}
+\newcommand{\mse@contact}{\@empty}
+\newcommand{\contact}[1]{
+   \renewcommand{\mse@contact}{{\texttt{#1}}}
 }
-\newcommand\mse@professor{}
-\newcommand\mse@professor@email{}
-\newcommand\mse@professor@institute{}
-\newcommand{\professor}[3]{
+
+\newcommand{\mse@professor}{\@empty}
+\newcommand{\professor}[1]{
    \renewcommand{\mse@professor}{#1}
-   \renewcommand{\mse@professor@email}{#2}
-   \renewcommand{\mse@professor@institute}{#3}
 }
-\newcommand\mse@supervisor{}
-\newcommand\mse@supervisor@email{}
-\newcommand\mse@supervisor@institute{}
-\newcommand{\supervisor}[3]{
+
+\newcommand{\mse@supervisor}{\@empty}
+\newcommand{\supervisor}[1]{
    \renewcommand{\mse@supervisor}{#1}
-   \renewcommand{\mse@supervisor@email}{#2}
-   \renewcommand{\mse@supervisor@institute}{#3}
 }
-\newcommand\mse@expert{}
-\newcommand\mse@expert@email{}
-\newcommand\mse@expert@institute{}
-\newcommand{\expert}[3]{
+
+\newcommand{\mse@expert}{\@empty}
+\newcommand{\expert}[1]{
    \renewcommand{\mse@expert}{#1}
-   \renewcommand{\mse@expert@email}{#2}
-   \renewcommand{\mse@expert@institute}{#3}
 }
-\newcommand\mse@proposedby{}
-\newcommand\mse@proposedby@email{}
-\newcommand\mse@proposedby@institute{}
-\newcommand{\proposedby}[3]{
+
+\newcommand{\mse@proposedby}{\@empty}
+\newcommand{\proposedby}[1]{
    \renewcommand{\mse@proposedby}{#1}
-   \renewcommand{\mse@proposedby@email}{#2}
-   \renewcommand{\mse@proposedby@institute}{#3}
 }
-\newcommand\mse@advisor{}
-\newcommand{\advisor}[1]{
-   \renewcommand{\mse@advisor}{#1}
+
+\newcommand\mse@version{\@empty}
+\newcommand{\version}[1]{
+   \renewcommand{\mse@version}{#1}
 }
-\newcommand\mse@headofmse{}
+
+\newcommand\mse@headofmse{\@empty}
 \newcommand{\headofmse}[1]{
    \renewcommand{\mse@headofmse}{#1}
 }
-\newcommand\mse@version{}
-\newcommand{\version}[1]{
-   \renewcommand{\mse@version}{#1}
+
+\newcommand{\mse@location}{\@empty}
+\newcommand{\location}[1]{
+   \renewcommand{\mse@location}{#1}
+}
+
+\newcommand\mse@advisor{\@empty}
+\newcommand{\advisor}[1]{
+   \renewcommand{\mse@advisor}{#1}
 }
 
 % clear a double page for a new chapter - when there isn't any content in a page, this
@@ -213,27 +210,27 @@
          {\large \mse@type}
          \vspace{0.75cm} 
 
-         \if\mse@institute \else
+         \if\mse@location\@empty \else
             \begin{minipage}[c]{0.6\textwidth}
-                \centering \mse@str@supportedby \textit \mse@institute, \textit \mse@institute@short
-            \end{minipage}
+               \centering \mse@str@supportedby \emph{\mse@location}
+            \end{minipage}\@empty
          \fi
          \vspace{2cm}
 
          {\large \mse@author}\\
-         \if\mse@email \else \texttt \mse@email \fi
+         \mse@contact
          \vspace{2.5cm} 
 
          \begin{minipage}[t]{0.45\textwidth}
             \begin{flushleft}
                {\bf \mse@str@professor}\\
-               \mse@professor, {\textit \mse@professor@institute}\\
-               {\texttt \mse@professor@email}\\
-               \vspace{1cm} 
-               \if\mse@supervisor \else
-                  {\bf \mse@str@supervisor}\\
-                  \mse@supervisor, {\textit \mse@supervisor@institute}\\
-                  {\texttt \mse@supervisor@email}
+               \vspace{0.5em}
+               \mse@professor\\
+               \vspace{1em}
+               \if\mse@supervisor\@empty \else
+               {\bf \mse@str@supervisor}\\
+               \vspace{0.5em}
+               \mse@supervisor
                \fi
             \end{flushleft}
          \end{minipage}
@@ -241,8 +238,8 @@
          \begin{minipage}[t]{0.45\textwidth}
             \begin{flushright}
                {\bf Expert}\\
-               \mse@expert, {\textit \mse@expert@institute}\\
-               {\texttt \mse@expert@email}
+               \vspace{0.5em}
+               \mse@expert
             \end{flushright}
          \end{minipage}
 
@@ -259,12 +256,11 @@
       \pagestyle{empty}
 
       \begin{center}
-         \parbox[c][\textheight][t]{1.0\textwidth}{
+         \parbox[c][0.98\textheight][t]{1.0\textwidth}{
             \begin{center}
 
                \mse@str@proposedby\\[2ex]
-               \mse@proposedby, {\textit \mse@proposedby@institute}\\
-               {\texttt \mse@proposedby@email}
+               \mse@proposedby
                \vspace{2.5cm} 
 
                \begin{minipage}[t]{0.49\textwidth}

@@ -9,7 +9,7 @@ This template provides a LaTeX class which simply replaces and extends the stand
 
 ### Without Git
 
-You can simply check out [releases](https://github.com/njakob/template-latex/releases) and download [last zip package](https://github.com/njakob/template-latex/archive/v2.0-package.zip).
+You can simply check out [releases](https://github.com/njakob/template-latex/releases) and download [last zip package](https://github.com/njakob/template-latex/archive/v2.1-package.zip).
 
 *It is recommended that you configure your workspace as shown below, then it will be easy to keep it updated.*
 
@@ -47,7 +47,7 @@ This sub-module will work the same way as a normal repository. For example, you 
 
 ```shell
 $ cd ./template-latex
-$ git checkout v2.0
+$ git checkout v2.1
 $ cd ..
 ```
 
@@ -101,48 +101,56 @@ Some metadata listed below must be provided to the document class.
 
 ### Advisor
 
-Arguments: name
-
 Advisor of your project, it is usually the same person as `\professor`.
 
 Example: `\advisor{Prof. John Doe}`
 
 ### Author
 
-Arguments: name, e-mail
+Your full name.
 
-Your name and contact information.
+Example: `\author{Nicolas Jakob}`
 
-Example: `\author{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}`
+### Contact
+
+Your e-mail address.
+
+Example: `\contact{nicolas.jakob@master.hes-so.ch}`
 
 ### Expert
 
-Arguments: name, e-mail, school or institute
+Name and contact information of your expert(s).
 
-Name and contact information of your expert.
-
-Example: `\expert{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}`
+Example:
+```latex
+\expert{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+```
 
 ### HeadOfMSE
-
-Arguments: name
 
 Name of Head of MSE.
 
 Example: `\headofmse{Fariba Moghaddam Bützberger}`
 
-### Institute
+### Location
 
-*Optional*,
-Arguments: school or institute, acronym
+*Optional*
 
 When you are abroad, place the information about the school or institute where you have done your work.
 
-Example: `\institute{Institute which is aboard}{HES-SO}`
+Example:
+```latex
+\location{
+   Institute which is aboard
+   \institute{HES-SO}
+}
+```
 
 ### Title
-
-Arguments: title
 
 Title of your report.
 
@@ -150,32 +158,50 @@ Example: `\title{\LaTeX\ Thesis Template}`
 
 ### Professor
 
-Arguments: name, e-mail, school or institute
+Professor(s) who follow your research.
 
-Professor who follows your research.
-
-Example: `\professor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}`
+Example:
+```latex
+\professor{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+   \and
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+```
 
 ### ProposedBy
 
-Arguments: name, e-mail, school or institute
-
 Person or company who proposed the subject of your work.
 
-Example: `\proposedby{Nicolas Jakob}{nicolas.jakob@master.hes-so.ch}{HES-SO}`
+Example:
+```latex
+\proposedby{
+   Nicolas Jakob
+   \institute{HES-SO}
+   \email{nicolas.jakob@master.hes-so.ch}
+}
+```
 
 ### Supervisor
 
-*Optional*,
-Arguments: name, e-mail, school or institute
+*Optional*
 
 When you are abroad, place information about the person following your research.
 
-Example: `\supervisor{Prof. John Doe}{john.doe@nowhere.com}{HES-SO}`
+Example:
+```latex
+\supervisor{
+   Prof. John Doe
+   \institute{HES-SO}
+   \email{john.doe@nowhere.com}
+}
+```
 
 ### Version
-
-Arguments: version
 
 Keep track of the published version of your document.
 
