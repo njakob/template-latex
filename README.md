@@ -17,12 +17,12 @@ You can simply check out [releases](https://github.com/njakob/template-latex/rel
 
 Create a new folder for your report, then run git clone command.
 
-```shell
+```sh
 $ git clone git@github.com:njakob/template-latex.git
 ```
 
 Then copy an example from `/examples` folder into your workspace.
-```shell
+```sh
 $ cp -a template-latex/examples/simple-report/* ./
 ```
 
@@ -32,27 +32,27 @@ Now you can start to write your report in `thesis.tex`.
 
 Create a new folder for your report, and then initialize your repository as usual.
 
-```shell
+```sh
 $ git init
 $ git remote add origin <remote-location-of-your-git>
 ```
 
 Then you can link this template with your repository with git submodule.
 
-```shell
+```sh
 $ git submodule add git@github.com:njakob/template-latex.git ./template-latex
 ```
 
 This sub-module will work the same way as a normal repository. For example, you can change the version as shown below. More documentation could be found at <http://git-scm.com/book/en/Git-Tools-Submodules>.
 
-```shell
+```sh
 $ cd ./template-latex
 $ git checkout v2.1
 $ cd ..
 ```
 
 Then copy an example from `/examples` folder into your workspace.
-```shell
+```sh
 $ cp -a template-latex/examples/simple-report/* ./
 ```
 
@@ -103,19 +103,28 @@ Some metadata listed below must be provided to the document class.
 
 Advisor of your project, it is usually the same person as `\professor`.
 
-Example: `\advisor{Prof. John Doe}`
+Example:
+```latex
+\advisor{Prof. John Doe}
+```
 
 ### Author
 
 Your full name.
 
-Example: `\author{Nicolas Jakob}`
+Example:
+```latex
+\author{Nicolas Jakob}
+```
 
 ### Contact
 
 Your e-mail address.
 
-Example: `\contact{nicolas.jakob@master.hes-so.ch}`
+Example: 
+```latex
+\contact{nicolas.jakob@master.hes-so.ch}
+```
 
 ### Expert
 
@@ -134,7 +143,10 @@ Example:
 
 Name of Head of MSE.
 
-Example: `\headofmse{Fariba Moghaddam Bützberger}`
+Example:
+```latex
+\headofmse{Fariba Moghaddam Bützberger}
+```
 
 ### Location
 
@@ -154,7 +166,10 @@ Example:
 
 Title of your report.
 
-Example: `\title{\LaTeX\ Thesis Template}`
+Example:
+```latex
+\title{\LaTeX\ Thesis Template}
+```
 
 ### Professor
 
@@ -205,4 +220,7 @@ Example:
 
 Keep track of the published version of your document.
 
-Example: `\version{Version 1}`
+Example:
+```
+\version{Version 1}
+```
